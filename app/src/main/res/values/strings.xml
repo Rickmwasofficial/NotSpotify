@@ -7,7 +7,7 @@
     <string name="title3">You\'re All Set!</string>
     <string name="body3">""</string>
     <string name="buttonText">Back</string>
-    <string name="buttonText2">Start</string>
+    <string name="buttonText2">Next</string>
     <string name="buttonText3">Get Started</string>
     <string name="buttonText4">Continue</string>
 </resources>
