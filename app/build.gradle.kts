@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "2.0.21"
+    id("com.google.devtools.ksp")
+    id("dagger.hilt.android.plugin")
+    id("kotlinx-serialization")
 }
 
 android {
@@ -65,5 +69,23 @@ dependencies {
 
     // accompanist pager
     implementation(libs.foundation.pager)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // Hilt ViewModel integration
+    implementation(libs.androidx.hilt.navigation.compose) // For Compose
+    ksp(libs.androidx.hilt.compiler)
+
+    // Kotlinx Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Navigation with Serialization support
+    implementation(libs.androidx.navigation.compose)
 
 }
