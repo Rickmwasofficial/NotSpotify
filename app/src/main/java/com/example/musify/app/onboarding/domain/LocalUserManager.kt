@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.domain
+package com.example.musify.app.onboarding.domain
 
 import kotlinx.coroutines.flow.Flow
 

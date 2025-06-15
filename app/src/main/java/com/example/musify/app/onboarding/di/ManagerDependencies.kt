@@ -1,11 +1,11 @@
-package com.example.musify.onboarding.di
+package com.example.musify.app.onboarding.di
 
 import android.app.Application
-import com.example.musify.onboarding.data.LocalUserManagerImpl
-import com.example.musify.onboarding.domain.AppEntryUseCases
-import com.example.musify.onboarding.domain.LocalUserManager
-import com.example.musify.onboarding.domain.ReadAppEntry
-import com.example.musify.onboarding.domain.SaveAppEntry
+import com.example.musify.app.onboarding.data.LocalUserManagerImpl
+import com.example.musify.app.onboarding.domain.AppEntryUseCases
+import com.example.musify.app.onboarding.domain.LocalUserManager
+import com.example.musify.app.onboarding.domain.ReadAppEntry
+import com.example.musify.app.onboarding.domain.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

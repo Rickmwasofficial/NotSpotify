@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.presentation
+package com.example.musify.app.onboarding.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.musify.onboarding.data.PageData
+import com.example.musify.app.onboarding.data.PageData
 import com.example.musify.ui.theme.MusifyTheme
 
 @Composable

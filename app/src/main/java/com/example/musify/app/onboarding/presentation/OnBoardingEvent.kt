@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.presentation
+package com.example.musify.app.onboarding.presentation
 
 sealed class OnBoardingEvent  {
     object SaveAppEntry : OnBoardingEvent()

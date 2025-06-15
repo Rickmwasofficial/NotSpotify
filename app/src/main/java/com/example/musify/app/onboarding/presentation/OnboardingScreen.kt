@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.presentation
+package com.example.musify.app.onboarding.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,9 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.musify.onboarding.data.PageData
-import com.example.musify.onboarding.presentation.components.NextButton
-import com.example.musify.onboarding.presentation.components.SkipButton
+import com.example.musify.app.onboarding.data.PageData
+import com.example.musify.app.onboarding.presentation.components.NextButton
+import com.example.musify.app.onboarding.presentation.components.SkipButton
 import kotlinx.coroutines.launch
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.presentation.components
+package com.example.musify.app.onboarding.presentation.components
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button

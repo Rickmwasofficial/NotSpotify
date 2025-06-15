@@ -1,4 +1,4 @@
-package com.example.musify.onboarding.data
+package com.example.musify.app.onboarding.data
 
 import com.example.musify.R
 

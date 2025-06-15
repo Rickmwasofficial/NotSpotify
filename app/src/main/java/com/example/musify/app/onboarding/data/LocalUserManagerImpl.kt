@@ -1,7 +1,7 @@
-package com.example.musify.onboarding.data
+package com.example.musify.app.onboarding.data
 
 import android.content.Context
-import com.example.musify.onboarding.domain.LocalUserManager
+import com.example.musify.app.onboarding.domain.LocalUserManager
 import kotlinx.coroutines.flow.Flow
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

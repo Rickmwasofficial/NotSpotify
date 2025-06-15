@@ -10,4 +10,9 @@
     <string name="buttonText2">Next</string>
     <string name="buttonText3">Get Started</string>
     <string name="buttonText4">Continue</string>
+    <string name="home">Home</string>
+    <string name="libraryText">Library</string>
+    <string name="albums">Albums</string>
+    <string name="favorites">Favorites</string>
+    <string name="not_spotify">Not Spotify</string>
 </resources>

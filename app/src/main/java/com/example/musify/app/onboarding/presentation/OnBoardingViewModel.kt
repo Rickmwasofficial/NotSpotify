@@ -1,8 +1,8 @@
-package com.example.musify.onboarding.presentation
+package com.example.musify.app.onboarding.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.musify.onboarding.domain.AppEntryUseCases
+import com.example.musify.app.onboarding.domain.AppEntryUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
