@@ -1,0 +1,106 @@
+package com.example.musify.app.core.components
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.musify.R
+import com.example.musify.ui.theme.MusifyTheme
+
+@Composable
+fun PlayingCard(title: String, artist: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val color = MaterialTheme.colorScheme.primary
+    Card(
+        modifier = modifier
+            .padding(vertical = 2.dp)
+            .height(60.dp)
+            .widthIn(min = 250.dp)
+            .background(MaterialTheme.colorScheme.surface)
+            .drawBehind {
+                drawLine(
+                    color = color,
+                    start = Offset(0f, 0f),
+                    end = Offset(size.width - 100, 0f),
+                    strokeWidth = 5.dp.toPx()
+                )
+            },
+        onClick = { onClick() },
+        shape = RoundedCornerShape(0.dp),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface).widthIn(min = 250.dp).padding(horizontal = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Image(
+                painter = painterResource(R.drawable.hood_poet),
+                contentDescription = title,
+                contentScale = ContentScale.Crop,
+                alpha = 1f,
+                modifier = Modifier.height(50.dp).width(50.dp).clip(RoundedCornerShape(25.dp)),
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .padding(6.dp)
+                    .weight(1f),
+                verticalArrangement = Arrangement.SpaceEvenly,
+                horizontalAlignment = Alignment.Start
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.ExtraBold,
+                    modifier = Modifier
+                )
+                Text(
+                    text = artist,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.ExtraBold,
+                    modifier = Modifier
+                )
+            }
+            Row(
+                modifier = Modifier.padding(end = 15.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                IconButtonNoText(Icons.Default.PlayArrow, {  }, Modifier.size(30.dp))
+                IconButtonNoText(Icons.Default.FavoriteBorder, {  }, Modifier.size(30.dp))
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PlayingCardPreview() {
+    MusifyTheme {
+        PlayingCard("The Come Up", "Polo G", { })
+    }
+}

@@ -12,7 +12,8 @@
     <string name="buttonText4">Continue</string>
     <string name="home">Home</string>
     <string name="libraryText">Library</string>
-    <string name="albums">Albums</string>
+    <string name="albums">Playlists</string>
     <string name="favorites">Favorites</string>
     <string name="not_spotify">Not Spotify</string>
+    <string name="playlist_cover">Playlist Cover</string>
 </resources>
