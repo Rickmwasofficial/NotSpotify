@@ -6,7 +6,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,18 +16,29 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -38,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.musify.R
 import com.example.musify.app.core.components.AlbumCard
+import com.example.musify.app.core.components.BottomSheet
 import com.example.musify.app.core.components.IconButtonNoText
 import com.example.musify.app.core.components.PlayingCard
 import com.example.musify.app.core.components.SongCard
@@ -47,6 +58,7 @@ import com.example.musify.ui.theme.MusifyTheme
 
 @Composable
 fun HomeUiScreen(modifier: Modifier = Modifier) {
+
     Surface(
         modifier = modifier.fillMaxSize()
     ) {
@@ -71,6 +83,7 @@ fun HomeUiScreen(modifier: Modifier = Modifier) {
                 }
             }
             PlayingCard("The Come Up", "Polo G", { })
+
         }
     }
 }
@@ -152,7 +165,7 @@ fun PlaylistPreviews(modifier: Modifier = Modifier) {
 fun RecentlyPlayed(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal =  1.dp),
-        verticalArrangement = Arrangement.spacedBy(5.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.Start
     ) {
         TitleNav("Recently Played", {}, modifier = Modifier.padding(horizontal = 15.dp))
@@ -173,7 +186,7 @@ fun RecentlyPlayed(modifier: Modifier = Modifier) {
 fun RecentlyAdded(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal =  1.dp),
-        verticalArrangement = Arrangement.spacedBy(5.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.Start
     ) {
         TitleNav("Recently Added", {}, modifier = Modifier.padding(horizontal = 15.dp))
@@ -194,7 +207,7 @@ fun RecentlyAdded(modifier: Modifier = Modifier) {
 fun MostPlayed(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal =  1.dp),
-        verticalArrangement = Arrangement.spacedBy(5.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.Start
     ) {
         TitleNav("Most Played", {}, modifier = Modifier.padding(horizontal = 15.dp))
@@ -212,10 +225,23 @@ fun MostPlayed(modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SongBottomSheet(title: String, artist: String, onDismiss: () -> Unit) {
+    val modalBottomSheetState = rememberModalBottomSheetState()
+    ModalBottomSheet(
+        onDismissRequest = { onDismiss() },
+        sheetState = modalBottomSheetState,
+        dragHandle = { BottomSheetDefaults.DragHandle() }
+    ) {
+        BottomSheet(title, artist)
+    }
+}
+
 @Preview
 @Composable
 fun HomeUiScreenPreview() {
     MusifyTheme {
-        TopNavBar()
+        HomeUiScreen()
     }
 }
